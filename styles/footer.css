@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    background-color: rgba(231, 108, 31, 1);
+    justify-content: center;
+    height: 128px;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 1200px;
+    color: white;
+    padding-top: 72px;
+}
+
+.footer_container a {
+    text-decoration: none;
+    color: white;
+}
