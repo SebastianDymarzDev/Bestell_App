@@ -1,0 +1,49 @@
+.landing_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero {
+    position: absolute;
+    top: 120px;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    max-width: 1440px;
+}
+
+.headline_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.burger_house_logo {
+    padding-top: 300px;
+}
+
+.headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    padding: 10px 0;
+}
+
+h1 {
+    font-family: 'Palanquin Dark';
+    font-size: 48px;
+    font-weight: 700;
+}
+
+h1 > span {
+    color: rgba(231, 108, 31, 1);
+    font-family: 'Palanquin Dark';
+    font-size: 48px;
+    font-weight: 700;
+}
