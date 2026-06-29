@@ -2,3 +2,16 @@
     width: 60px;
     height: 60px;
 }
+
+.add_button {
+    display: flex;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
+    cursor: pointer;
+}
