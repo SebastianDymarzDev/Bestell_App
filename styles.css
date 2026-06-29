@@ -77,6 +77,11 @@ h3 {
 .background_stripe {
     display: flex;
     background-color: rgba(231, 108, 31, 1);
-    height: 60px;
+    height: 90px;
     width: 100%;
+}
+
+.menu_box {
+    display: flex;
+    background-color: rgba(253, 234, 220, 1);
 }
