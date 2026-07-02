@@ -3,7 +3,7 @@ function getBurgerTemplate(indexBurger) {
         <div class="menu_box">
             <img
                 class="menu_image"
-                ${allMenus.burgerMenuImages[indexBurger]}
+                src="${allMenus.burgerMenuImages[indexBurger]}"
             >
             <article class="menu_content">
                 <div class="left_content">
@@ -24,7 +24,7 @@ function getPizzaTemplate(indexPizza) {
         <div class="menu_box">
             <img
                 class="menu_image"
-                ${allMenus.pizzaMenuImages[indexPizza]}
+                src="${allMenus.pizzaMenuImages[indexPizza]}"
             >
             <article class="menu_content">
                 <div class="left_content">
@@ -45,7 +45,7 @@ function getSaladTemplate(indexSalad) {
         <div class="menu_box">
             <img
                 class="menu_image"
-                ${allMenus.saladMenuImages[indexSalad]}
+                src="${allMenus.saladMenuImages[indexSalad]}"
             >
             <article class="menu_content">
                 <div class="left_content">
