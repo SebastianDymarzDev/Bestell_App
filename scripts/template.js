@@ -4,6 +4,7 @@ function getBurgerTemplate(indexBurger) {
             <img
                 class="menu_image"
                 src="${allMenus.burgerMenuImages[indexBurger]}"
+                alt="${allMenus.burgerMenuNames[indexBurger]}"
             >
             <article class="menu_content">
                 <div class="left_content">
@@ -25,6 +26,7 @@ function getPizzaTemplate(indexPizza) {
             <img
                 class="menu_image"
                 src="${allMenus.pizzaMenuImages[indexPizza]}"
+                alt="${allMenus.pizzaMenuNames[indexPizza]}"
             >
             <article class="menu_content">
                 <div class="left_content">
@@ -46,6 +48,7 @@ function getSaladTemplate(indexSalad) {
             <img
                 class="menu_image"
                 src="${allMenus.saladMenuImages[indexSalad]}"
+                alt="${allMenus.saladMenuNames[indexSalad]}"
             >
             <article class="menu_content">
                 <div class="left_content">

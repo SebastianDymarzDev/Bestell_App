@@ -8,9 +8,10 @@
 }
 
 .basket_container {
+    position: sticky;
     display: flex;
     width: 400px;
-    min-height: auto;
+    height: auto;
     background-color: rgba(54, 53, 52, 1);
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
