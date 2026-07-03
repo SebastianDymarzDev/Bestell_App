@@ -1,8 +1,4 @@
 function init() {
-    // burger = document.getElementById('burger');
-    // pizza = document.getElementById('pizza');
-    // salad = document.getElementById('salad');
-
     renderAllMenu();
 }
 
@@ -10,6 +6,7 @@ function renderAllMenu() {
     renderBurger();
     renderPizza();
     renderSalad();
+    renderBasketMenu();
 }
 
 function renderBurger() {
@@ -36,5 +33,15 @@ function renderSalad() {
 
     for (let indexSalad = 0; indexSalad < allMenus.saladMenuNames.length; indexSalad++) {
         saladContentRef.innerHTML += getSaladTemplate(indexSalad);
+    }
+}
+
+function renderBasketMenu() {
+    let basketMenuRef = document.getElementById('basket_content')
+    basketMenuRef.innerHTML = "";
+
+    for (let indexBasketMenu = 0; indexBasketMenu < allMenus.BasketMenu.length; indexBasketMenu++) {
+        basketMenuRef.innerHTML += getBasketMenuTemplate(indexBasketMenu);
+        
     }
 }

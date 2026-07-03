@@ -63,3 +63,15 @@ function getSaladTemplate(indexSalad) {
         </div>
     `;
 }
+
+function getBasketMenuTemplate(indexBasketMenu) {
+    return `
+        <div class="basket_menu_box">
+            <article class="basket_menu_content">
+                <h3>  x ${allMenus.basketMenuNames[indexBasketMenu]}</h3>
+                <div>
+                    <p><img src="../assets/icons/trash.svg" alt="Trash Symbol"></p>
+                    <p>${allMenus.basketMenuPrices[indexBasketMenu]}</p>
+                </div>
+    `;
+}
