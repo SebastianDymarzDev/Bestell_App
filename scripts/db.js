@@ -10,5 +10,7 @@ let allMenus = {
     'saladMenuImages': ['../assets/img/warm_beef.png', '../assets/img/mini_green.png', '../assets/img/green_salad.png', '../assets/img/vegan_green.png'],
     'saladMenuNames': ['Warm beef arugula salad', 'Mini green Salad', 'Green Salad with sea food', 'Vegan green salad with tofu'],
     'saladMenuPrices': ['16.90', '7.90', '16.90', '14.90'],
-    'saladMenuDescriptions': ['Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing', 'Green salad, Cucumber, Carrots, Parsley, Radishes', 'Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill', 'Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts']
+    'saladMenuDescriptions': ['Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing', 'Green salad, Cucumber, Carrots, Parsley, Radishes', 'Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill', 'Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts'],
+    'basketMenuNames': [],
+    'basketMenuPrices': []
 }

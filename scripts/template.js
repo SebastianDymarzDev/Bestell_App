@@ -12,8 +12,8 @@ function getBurgerTemplate(indexBurger) {
                     <p>${allMenus.burgerMenuDescriptions[indexBurger]}</p>
                 </div>
                 <div class="right_content">
-                    <h3>${allMenus.burgerMenuPrices[indexBurger]}</h3>
-                    <button class="add_button">Add to basket</button>
+                    <h3>${allMenus.burgerMenuPrices[indexBurger]}€</h3>
+                    <button onclick="addToBasket(${indexBurger}, 'burgerMenu')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
@@ -34,8 +34,8 @@ function getPizzaTemplate(indexPizza) {
                     <p>${allMenus.pizzaMenuDescriptions[indexPizza]}</p>
                 </div>
                 <div class="right_content">
-                    <h3>${allMenus.pizzaMenuPrices[indexPizza]}</h3>
-                    <button class="add_button">Add to basket</button>
+                    <h3>${allMenus.pizzaMenuPrices[indexPizza]}€</h3>
+                    <button onclick="addToBasket(${indexPizza}, 'pizzaMenu')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
@@ -56,22 +56,22 @@ function getSaladTemplate(indexSalad) {
                     <p>${allMenus.saladMenuDescriptions[indexSalad]}</p>
                 </div>
                 <div class="right_content">
-                    <h3>${allMenus.saladMenuPrices[indexSalad]}</h3>
-                    <button class="add_button">Add to basket</button>
+                    <h3>${allMenus.saladMenuPrices[indexSalad]}€</h3>
+                    <button onclick="addToBasket(${indexSalad}, 'saladMenu')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
     `;
 }
 
-function getBasketMenuTemplate(indexBasketMenu) {
+function getBasketTemplate(indexBasket) {
     return `
-        <div class="basket_menu_box">
+        <div class="basket_menu_box" id="basket">
             <article class="basket_menu_content">
-                <h3>  x ${allMenus.basketMenuNames[indexBasketMenu]}</h3>
+                <h3>  x ${allMenus.basketMenuNames[indexBasket]}</h3>
                 <div>
                     <p><img src="../assets/icons/trash.svg" alt="Trash Symbol"></p>
-                    <p>${allMenus.basketMenuPrices[indexBasketMenu]}</p>
+                    <p>${allMenus.basketMenuPrices[indexBasket]}</p>
                 </div>
     `;
 }
