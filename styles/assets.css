@@ -30,3 +30,17 @@
     width: 115px;
     cursor: pointer;
 }
+
+.buy_button {
+    display: flex;
+    background-color: rgba(231, 108, 31, 1);
+    color: white;
+    border: none;
+    border-radius: 60px;
+    font-size: 32px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    cursor: pointer;
+}
