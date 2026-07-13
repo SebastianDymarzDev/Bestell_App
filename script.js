@@ -59,7 +59,7 @@ function renderBasket() {
     let basketContentRef = document.getElementById('basket')
     basketContentRef.innerHTML = "";
 
-    for (let indexBasket = 0; indexBasket < allMenus.BasketMenuNames.length; indexBasket++) {
+    for (let indexBasket = 0; indexBasket < allMenus.basketMenuNames.length; indexBasket++) {
         basketContentRef.innerHTML += getBasketTemplate(indexBasket);
     }
 }
