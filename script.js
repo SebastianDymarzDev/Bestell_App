@@ -63,3 +63,9 @@ function renderBasket() {
         basketContentRef.innerHTML += getBasketTemplate(indexBasket);
     }
 }
+
+function deleteFromBasket(indexBasket) {
+    allMenus.basketMenuNames.splice(indexBasket, 1);
+    allMenus.basketMenuPrices.splice(indexBasket, 1);
+    renderBasket();
+}
