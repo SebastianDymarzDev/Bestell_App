@@ -6,7 +6,6 @@ function renderAllMenu() {
     renderBurger();
     renderPizza();
     renderSalad();
-    // renderBasket();
 }
 
 function addToBasket(indexMenu, startKey) {

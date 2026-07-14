@@ -69,7 +69,7 @@ function getBasketTemplate(indexBasket) {
         <div class="basket_menu_box">
             <h3>  x ${allMenus.basketMenuNames[indexBasket]}</h3>
             <div class="basket_menu_content">
-                <button onclick="deleteFromBasket(${indexBasket})" class="trash_button"><img src="../assets/icons/trash.svg" alt="Trash Symbol"></button>
+                <button onclick="deleteFromBasket(${indexBasket})" class="trash_button"></button>
                 <p>${allMenus.basketMenuPrices[indexBasket]} €</p>
             </div>
         </div>
