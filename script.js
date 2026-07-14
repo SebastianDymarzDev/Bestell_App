@@ -68,3 +68,15 @@ function deleteFromBasket(indexBasket) {
     allMenus.basketMenuPrices.splice(indexBasket, 1);
     renderBasket();
 }
+
+function calculateSubtotal() {
+    
+}
+
+function calculateTotal() {
+    
+}
+
+function incrementQuantity() {
+    
+}
