@@ -44,3 +44,10 @@
     width: 320px;
     cursor: pointer;
 }
+
+.trash_button {
+    display: flex;
+    background-color: rgba(253, 234, 220, 1);
+    border: none;
+    cursor: pointer;
+}

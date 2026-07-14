@@ -33,12 +33,30 @@
 }
 
 .basket_menu_box {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(253, 234, 220, 1);
     border-radius: 20px;
     width: 340px;
+    padding: 12px;
+}
+
+.basket_menu_box h3 {
+    color: black;
+}
+
+.basket_menu_content {
+    display: flex;
+    justify-content: space-between;
 }
 
 .prices {
     color: white;
     width: 340px;
+}
+
+.menu_in_basket {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }

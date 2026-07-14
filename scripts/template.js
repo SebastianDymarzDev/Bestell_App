@@ -67,13 +67,11 @@ function getSaladTemplate(indexSalad) {
 function getBasketTemplate(indexBasket) {
     return `
         <div class="basket_menu_box">
-            <article class="basket_menu_content">
-                <h3>  x ${allMenus.basketMenuNames[indexBasket]}</h3>
-                <div>
-                    <p><img src="../assets/icons/trash.svg" alt="Trash Symbol"></p>
-                    <p>${allMenus.basketMenuPrices[indexBasket]}</p>
-                </div>
-            </article>
+            <h3>  x ${allMenus.basketMenuNames[indexBasket]}</h3>
+            <div class="basket_menu_content">
+                <button class="trash_button"><img src="../assets/icons/trash.svg" alt="Trash Symbol"></button>
+                <p>${allMenus.basketMenuPrices[indexBasket]} €</p>
+            </div>
         </div>
     `;
 }
