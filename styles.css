@@ -71,15 +71,18 @@ h3 {
 }
 
 .section_headline {
+    position: relative;
     display: flex;
     height: 90px;
     width: 100%;
 }
 
 .section_headline_background {
-    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 90px;
-    width: 100%;
+    width: 100vw;
     background-color: rgba(231, 108, 31, 1);
 }
 
