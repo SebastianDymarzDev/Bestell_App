@@ -18,14 +18,18 @@ function addToBasket(indexMenu, startKey) {
         return
     }
 
-    allMenus.basketMenuNames.push(basketMenuNamesRef);
-    allMenus.basketMenuPrices.push(basketMenuPricesRef);
-    allMenus.basketMenuOrigin.push({ indexMenu, startKey });
-    allMenus.basketMenuQuantities.push(1);
+    pushToBasket(basketMenuNamesRef, basketMenuPricesRef, indexMenu, startKey);
 
     renderBasket();
     updatePrices();
     updateAddButton(indexMenu, startKey);
+}
+
+function pushToBasket(name, price, indexMenu, startKey) {
+    allMenus.basketMenuNames.push(name);
+    allMenus.basketMenuPrices.push(price);
+    allMenus.basketMenuOrigin.push({ indexMenu, startKey });
+    allMenus.basketMenuQuantities.push(1);
 }
 
 function renderBurger() {
