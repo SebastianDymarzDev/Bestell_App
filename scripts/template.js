@@ -67,10 +67,10 @@ function getSaladTemplate(indexSalad) {
 function getBasketTemplate(indexBasket) {
     return `
         <div class="basket_menu_box">
-            <h3> 1 x ${allMenus.basketMenuNames[indexBasket]}</h3>
+            <h3 id="name-${indexBasket}"> 1 x ${allMenus.basketMenuNames[indexBasket]}</h3>
             <div class="basket_menu_content">
                 <div class="selection_field">
-                    <button onclick="deleteFromBasket(${indexBasket})" class="trash_button"></button>
+                    <button id="decrement-${indexBasket}" onclick="decrementQuantity(${indexBasket})" class="trash_button"></button>
                     <p id="quantity-${indexBasket}"> 1 </p>
                     <button class="selection_button" onclick="incrementQuantity(${indexBasket})"> + </button>
                 </div>
