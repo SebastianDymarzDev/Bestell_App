@@ -197,3 +197,30 @@ function updateAddButtonDisplay(button, count) {
         button.classList.add('added_button');
     }
 }
+
+function openOrderDialog() {
+    let dialog = document.getElementById('order_dialog');
+    dialog.showModal();
+
+    setTimeout(closeOrderDialog, 5000);
+
+    resetBasket();
+}
+
+function closeOrderDialog() {
+    document.getElementById('order_dialog').close();
+}
+
+function resetBasket() {
+    allMenus.basketMenuOrigin.forEach(origin => {
+        setAddButtonCount(origin.indexMenu, origin.startKey, 0);
+    });
+
+    allMenus.basketMenuNames = [];
+    allMenus.basketMenuPrices = [];
+    allMenus.basketMenuOrigin = [];
+    allMenus.basketMenuQuantities = [];
+
+    renderBasket();
+    updatePrices();
+}
