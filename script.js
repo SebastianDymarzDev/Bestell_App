@@ -63,6 +63,54 @@ function renderBasket() {
     }
 }
 
+function incrementQuantity(indexBasket) {
+    let quantityElement = document.getElementById(`quantity-${indexBasket}`);
+    let priceElement = document.getElementById(`price-${indexBasket}`);
+
+    let quantity = parseInt(quantityElement.innerHTML);
+    quantity++;
+    quantityElement.innerHTML = quantity;
+
+    let price = allMenus.basketMenuPrices[indexBasket];
+    let newPrice = price * quantity;
+    priceElement.innerHTML = `${newPrice.toFixed(2)} €`;
+}
+
+// function decrementQuantity(indexBasket) {
+//     const quantityElement = document.getElementById(`quantity-${indexBasket}`);
+//     let quantity = parseInt(quantityElement.textContent);
+
+//     if (quantity <= 1) {
+//         deleteFromBasket(indexBasket);
+//         return;
+//     }
+
+//     quantity--;
+//     updateBasketItem(indexBasket, quantity);
+// }
+
+// function updateBasketItem(indexBasket, quantity) {
+//     const quantityElement = document.getElementById(`quantity-${indexBasket}`);
+//     const priceElement = document.getElementById(`price-${indexBasket}`);
+//     const nameElement = document.getElementById(`name-${indexBasket}`);
+//     const decrementButton = document.getElementById(`decrement-${indexBasket}`);
+
+//     quantityElement.textContent = quantity;
+
+//     const basePrice = allMenus.basketMenuPrices[indexBasket];
+//     const newPrice = basePrice * quantity;
+//     priceElement.textContent = `${newPrice.toFixed(2)} €`;
+
+//     nameElement.textContent = `${quantity} x ${allMenus.basketMenuNames[indexBasket]}`;
+
+//     if (quantity === 1) {
+//         decrementButton.className = 'trash_button';
+//     } else {
+//         decrementButton.className = 'selection_button';
+//         decrementButton.textContent = '-';
+//     }
+// }
+
 function deleteFromBasket(indexBasket) {
     allMenus.basketMenuNames.splice(indexBasket, 1);
     allMenus.basketMenuPrices.splice(indexBasket, 1);
@@ -74,9 +122,5 @@ function calculateSubtotal() {
 }
 
 function calculateTotal() {
-    
-}
-
-function incrementQuantity() {
     
 }

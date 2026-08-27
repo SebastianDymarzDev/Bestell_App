@@ -71,10 +71,10 @@ function getBasketTemplate(indexBasket) {
             <div class="basket_menu_content">
                 <div class="selection_field">
                     <button onclick="deleteFromBasket(${indexBasket})" class="trash_button"></button>
-                    <p> 1 </p>
-                    <button class="selection_button" onclick="incrementQuantity"> + </button>
+                    <p id="quantity-${indexBasket}"> 1 </p>
+                    <button class="selection_button" onclick="incrementQuantity(${indexBasket})"> + </button>
                 </div>
-                <p>${allMenus.basketMenuPrices[indexBasket]} €</p>
+                <p id="price-${indexBasket}">${allMenus.basketMenuPrices[indexBasket]} €</p>
             </div>
         </div>
     `;
