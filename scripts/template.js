@@ -13,7 +13,7 @@ function getBurgerTemplate(indexBurger) {
                 </div>
                 <div class="right_content">
                     <h3>${allMenus.burgerMenuPrices[indexBurger]}€</h3>
-                    <button onclick="addToBasket(${indexBurger}, 'burgerMenu')" class="add_button">Add to basket</button>
+                    <button id="add-button-burgerMenu-${indexBurger}" onclick="addToBasket(${indexBurger}, 'burgerMenu')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
@@ -35,7 +35,7 @@ function getPizzaTemplate(indexPizza) {
                 </div>
                 <div class="right_content">
                     <h3>${allMenus.pizzaMenuPrices[indexPizza]}€</h3>
-                    <button onclick="addToBasket(${indexPizza}, 'pizzaMenu')" class="add_button">Add to basket</button>
+                    <button id="add-button-pizzaMenu-${indexPizza}" onclick="addToBasket(${indexPizza}, 'pizzaMenu')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
@@ -57,7 +57,7 @@ function getSaladTemplate(indexSalad) {
                 </div>
                 <div class="right_content">
                     <h3>${allMenus.saladMenuPrices[indexSalad]}€</h3>
-                    <button onclick="addToBasket(${indexSalad}, 'saladMenu')" class="add_button">Add to basket</button>
+                    <button id="add-button-saladMenu-${indexSalad}" onclick="addToBasket(${indexSalad}, 'saladMenu')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
@@ -65,13 +65,15 @@ function getSaladTemplate(indexSalad) {
 }
 
 function getBasketTemplate(indexBasket) {
+    let quantity = allMenus.basketMenuQuantities[indexBasket];
+
     return `
         <div class="basket_menu_box">
-            <h3 id="name-${indexBasket}"> 1 x ${allMenus.basketMenuNames[indexBasket]}</h3>
+            <h3 id="name-${indexBasket}"> ${quantity} x ${allMenus.basketMenuNames[indexBasket]}</h3>
             <div class="basket_menu_content">
                 <div class="selection_field">
                     <button id="decrement-${indexBasket}" onclick="decrementQuantity(${indexBasket})" class="trash_button"></button>
-                    <p id="quantity-${indexBasket}"> 1 </p>
+                    <p id="quantity-${indexBasket}"> ${quantity} </p>
                     <button class="selection_button" onclick="incrementQuantity(${indexBasket})"> + </button>
                 </div>
                 <p id="price-${indexBasket}">${allMenus.basketMenuPrices[indexBasket]} €</p>

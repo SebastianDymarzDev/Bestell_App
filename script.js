@@ -13,21 +13,19 @@ const deliveryFee = 4.99;
 function addToBasket(indexMenu, startKey) {
     let basketMenuNamesRef = allMenus[startKey + "Names"][indexMenu];
     let basketMenuPricesRef = allMenus[startKey + "Prices"][indexMenu];
-    let basketMenuNames = basketMenuNamesRef.value;
-    let basketMenuPrices = basketMenuPricesRef.value;
 
-    if (basketMenuNames == "" || basketMenuPrices == "") {
+    if (!basketMenuNamesRef || !basketMenuPricesRef) {
         return
     }
 
     allMenus.basketMenuNames.push(basketMenuNamesRef);
     allMenus.basketMenuPrices.push(basketMenuPricesRef);
+    allMenus.basketMenuOrigin.push({ indexMenu, startKey });
+    allMenus.basketMenuQuantities.push(1);
 
     renderBasket();
     updatePrices();
-
-    basketMenuNamesRef.value = "";
-    basketMenuPricesRef.value = "";
+    updateAddButton(indexMenu, startKey);
 }
 
 function renderBurger() {
@@ -74,6 +72,9 @@ function incrementQuantity(indexBasket) {
 
     updateBasketItem(indexBasket, quantity);
     updatePrices();
+
+    let origin = allMenus.basketMenuOrigin[indexBasket];
+    setAddButtonCount(origin.indexMenu, origin.startKey, quantity);
 }
 
 function decrementQuantity(indexBasket) {
@@ -88,9 +89,14 @@ function decrementQuantity(indexBasket) {
     quantity--;
     updateBasketItem(indexBasket, quantity);
     updatePrices();
+
+    let origin = allMenus.basketMenuOrigin[indexBasket];
+    setAddButtonCount(origin.indexMenu, origin.startKey, quantity);
 }
 
 function updateBasketItem(indexBasket, quantity) {
+    allMenus.basketMenuQuantities[indexBasket] = quantity;
+
     let quantityElement = document.getElementById(`quantity-${indexBasket}`);
     let priceElement = document.getElementById(`price-${indexBasket}`);
     let nameElement = document.getElementById(`name-${indexBasket}`);
@@ -118,8 +124,15 @@ function updateDecrementButton(indexBasket, quantity) {
 }
 
 function deleteFromBasket(indexBasket) {
+let origin = allMenus.basketMenuOrigin[indexBasket];
+
     allMenus.basketMenuNames.splice(indexBasket, 1);
     allMenus.basketMenuPrices.splice(indexBasket, 1);
+    allMenus.basketMenuOrigin.splice(indexBasket, 1);
+    allMenus.basketMenuQuantities.splice(indexBasket, 1);
+
+    setAddButtonCount(origin.indexMenu, origin.startKey, 0);
+
     renderBasket();
     updatePrices();
 }
@@ -128,19 +141,21 @@ function calculateSubtotal() {
     let subtotal = 0;
 
     for (let i = 0; i < allMenus.basketMenuNames.length; i++) {
-        let priceElement = document.getElementById(`price-${i}`);
-
-        if (!priceElement) {
-            continue; // Artikel wurde gelöscht, also überspringen
-        }
-
-        let priceText = priceElement.innerHTML.replace('€', '').trim();
-        let price = parseFloat(priceText.replace(',', '.'));
-
-        subtotal += price;
+        subtotal += getItemPrice(i);
     }
 
     return subtotal;
+}
+
+function getItemPrice(index) {
+    let priceElement = document.getElementById(`price-${index}`);
+
+    if (!priceElement) {
+        return 0; // Artikel wurde gelöscht, also überspringen
+    }
+
+    let priceText = priceElement.innerHTML.replace('€', '').trim();
+    return parseFloat(priceText.replace(',', '.'));
 }
 
 function updatePrices() {
@@ -150,4 +165,31 @@ function updatePrices() {
     document.getElementById('subtotal').innerHTML = `${subtotal.toFixed(2)} €`;
     document.getElementById('total').innerHTML = `${total.toFixed(2)} €`;
     document.getElementById('buy_button').innerHTML = `Buy Now (${total.toFixed(2)} €)`;
+}
+
+function updateAddButton(indexMenu, startKey) {
+    let button = document.getElementById(`add-button-${startKey}-${indexMenu}`);
+    let count = parseInt(button.dataset.count || 0) + 1;
+    setAddButtonCount(indexMenu, startKey, count);
+}
+
+function setAddButtonCount(indexMenu, startKey, count) {
+    let button = document.getElementById(`add-button-${startKey}-${indexMenu}`);
+
+    if (!button) {
+        return;
+    }
+
+    button.dataset.count = count;
+    updateAddButtonDisplay(button, count);
+}
+
+function updateAddButtonDisplay(button, count) {
+    if (count <= 0) {
+        button.innerHTML = 'Add to basket';
+        button.classList.remove('added_button');
+    } else {
+        button.innerHTML = `Added ${count}`;
+        button.classList.add('added_button');
+    }
 }
