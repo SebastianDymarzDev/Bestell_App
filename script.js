@@ -168,7 +168,7 @@ function updatePrices() {
 
     document.getElementById('subtotal').innerHTML = `${subtotal.toFixed(2)} €`;
     document.getElementById('total').innerHTML = `${total.toFixed(2)} €`;
-    document.getElementById('buy_button').innerHTML = `Buy Now (${total.toFixed(2)} €)`;
+    document.getElementById('buy_button').innerHTML = `Buy Now ${total.toFixed(2)} €`;
 }
 
 function updateAddButton(indexMenu, startKey) {
