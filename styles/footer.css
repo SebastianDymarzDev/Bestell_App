@@ -17,3 +17,11 @@ footer {
     text-decoration: none;
     color: white;
 }
+
+.nav_bar {
+    display: none;
+    justify-content: space-around;
+    height: 80px;
+    width: 100%;
+    background-color: rgba(54, 53, 52, 1);
+}

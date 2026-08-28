@@ -89,3 +89,25 @@
 .selection_button:hover {
     color: rgba(231, 108, 31, 1);
 }
+
+.close_button {
+    background-color: rgba(54, 53, 52, 1);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.close_button:hover {
+    color: rgba(231, 108, 31, 1);
+}
+
+.close_button_container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;;
+}
+
+.nav_button {
+    background-color: rgba(54, 53, 52, 1);
+    border: none;
+}

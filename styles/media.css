@@ -199,7 +199,7 @@
     }
 
     .headline {
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 0;
     }
 
@@ -257,6 +257,15 @@
         align-items: center;
         padding-top: 0;
         justify-content: center;
+    }
+
+    footer {
+        flex-direction: column;
+        height: 210px;
+    }
+
+    .nav_bar {
+        display: flex;
     }
 
 }
