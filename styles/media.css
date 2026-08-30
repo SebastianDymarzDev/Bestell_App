@@ -264,11 +264,14 @@
     footer {
         flex-direction: column;
         height: 210px;
+        padding-bottom: 80px;
     }
 
     .nav_bar {
+        position: fixed;
         display: flex;
         align-items: center;
+        bottom: 0;
     }
 
     .close_button_container {

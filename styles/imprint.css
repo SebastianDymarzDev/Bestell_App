@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.imprint_content {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1300px) {
+
+    header {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    main {
+        width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+}
+
+
+@media screen and (max-width: 480px) {
+    
+    .burger_button {
+        display: none;
+    }
+
+    main {
+
+    }
+
+    .footer_container {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top: 0;
+        justify-content: center;
+        height: 130px;
+        width: 100%;
+    }
+
+}
