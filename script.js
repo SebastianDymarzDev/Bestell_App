@@ -208,6 +208,7 @@ function openOrderDialog() {
 
     setTimeout(closeOrderDialog, 5000);
 
+    closeBasketDialog();
     resetBasket();
 }
 

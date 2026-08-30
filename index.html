@@ -109,17 +109,19 @@
                         <button class="buy_button" id="buy_button" onclick="openOrderDialog()">Buy Now (€)</button>
                     </div>
                 </div>
-                <dialog class="order_dialog" id="order_dialog">
-                    <div class="close_button_container">
-                        <button class="close_button" onclick="closeOrderDialog()" id="closeButton">X</button>
-                    </div>
-                    <img src="./assets/icons/van.svg" alt="Lieferwagen">
-                    <h2>Order confirmed!</h2>
-                    <h3>Your food is on the way!</h3>
-                </dialog>
+
             </section>
         </section>
     </main>
+
+    <dialog class="order_dialog" id="order_dialog">
+        <div class="close_button_container">
+            <button class="close_button" onclick="closeOrderDialog()" id="closeButton">X</button>
+        </div>
+        <img src="./assets/icons/van.svg" alt="Lieferwagen">
+        <h2>Order confirmed!</h2>
+        <h3>Your food is on the way!</h3>
+    </dialog>
 
     <dialog class="basket_dialog_mobile" id="basket_dialog_mobile" onclick="closeBasketDialogOnBackdrop(event)">
         <div class="close_button_container">

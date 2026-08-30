@@ -297,4 +297,8 @@
         width: 70%;
     }
 
+    .order_dialog {
+        width: 90%;
+        max-width: 90%;
+    }
 }
