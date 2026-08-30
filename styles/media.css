@@ -257,6 +257,8 @@
         align-items: center;
         padding-top: 0;
         justify-content: center;
+        height: 130px;
+        width: 100%;
     }
 
     footer {
