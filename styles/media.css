@@ -253,7 +253,7 @@
     }
 
     .footer_container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         padding-top: 0;
         justify-content: center;
