@@ -28,13 +28,9 @@ main {
 
 
 @media screen and (max-width: 480px) {
-    
+
     .burger_button {
         display: none;
-    }
-
-    main {
-
     }
 
     .footer_container {
