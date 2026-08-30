@@ -23,6 +23,7 @@ function addToBasket(indexMenu, startKey) {
     renderBasket();
     updatePrices();
     updateAddButton(indexMenu, startKey);
+    updateBasketButton();
 }
 
 function pushToBasket(name, price, indexMenu, startKey) {
@@ -76,6 +77,7 @@ function incrementQuantity(indexBasket) {
 
     updateBasketItem(indexBasket, quantity);
     updatePrices();
+    updateBasketButton();
 
     let origin = allMenus.basketMenuOrigin[indexBasket];
     setAddButtonCount(origin.indexMenu, origin.startKey, quantity);
@@ -93,6 +95,7 @@ function decrementQuantity(indexBasket) {
     quantity--;
     updateBasketItem(indexBasket, quantity);
     updatePrices();
+    updateBasketButton();
 
     let origin = allMenus.basketMenuOrigin[indexBasket];
     setAddButtonCount(origin.indexMenu, origin.startKey, quantity);
@@ -139,6 +142,7 @@ let origin = allMenus.basketMenuOrigin[indexBasket];
 
     renderBasket();
     updatePrices();
+    updateBasketButton();
 }
 
 function calculateSubtotal() {
@@ -223,4 +227,50 @@ function resetBasket() {
 
     renderBasket();
     updatePrices();
+    updateBasketButton();
+}
+
+function openBasketDialog() {
+    let dialog = document.getElementById('basket_dialog_mobile');
+    let basketContainer = document.querySelector('.basket_container');
+
+    dialog.appendChild(basketContainer);
+    dialog.showModal();
+    dialog.classList.add('slide_in');
+}
+
+function closeBasketDialog() {
+    let dialog = document.getElementById('basket_dialog_mobile');
+    
+    dialog.classList.remove('slide_in');
+    dialog.classList.add('slide_out');
+
+    setTimeout(finishClosingBasketDialog, 300);;
+}
+
+function closeBasketDialogOnBackdrop(event) {
+    if (event.target.id === 'basket_dialog_mobile') {
+        closeBasketDialog();
+    }
+}
+
+function finishClosingBasketDialog() {
+    let dialog = document.getElementById('basket_dialog_mobile');
+    let basketSection = document.querySelector('.basket_section');
+    let basketContainer = dialog.querySelector('.basket_container');
+
+    basketSection.appendChild(basketContainer);
+    dialog.classList.remove('slide_out');
+    dialog.close();
+}
+
+function updateBasketButton() {
+    let basketIcon = document.getElementById('basket_icon');
+    let totalItems = allMenus.basketMenuQuantities.reduce((sum, quantity) => sum + quantity, 0);
+
+    if (totalItems <= 0) {
+        basketIcon.src = '/assets/icons/basket.svg';
+    } else {
+        basketIcon.src = '/assets/icons/shopping_cart.svg';
+    }
 }

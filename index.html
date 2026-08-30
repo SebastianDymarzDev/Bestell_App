@@ -24,7 +24,7 @@
 
 <body onload="init()">
     <header>
-        <div class="header_container">
+        <div class="header_container" id="top">
             <a href="index.html"><img src="./assets/icons/Logo 02.svg" alt="Bestell App Logo"></a>
             <button class="burger_button" type="button" aria-label="Menü öffnen"><span class="line"></span><span
                     class="line"></span><span class="line"></span></button>
@@ -121,6 +121,12 @@
         </section>
     </main>
 
+    <dialog class="basket_dialog_mobile" id="basket_dialog_mobile" onclick="closeBasketDialogOnBackdrop(event)">
+        <div class="close_button_container">
+            <button class="close_button" onclick="closeBasketDialog()">X</button>
+        </div>
+    </dialog>
+
     <footer>
         <div class="footer_container">
             <div class="copyright">&copy; 2025 BurgerHouse</div>
@@ -128,10 +134,11 @@
             <a href="">Cookie Preferences</a>
         </div>
         <nav class="nav_bar">
-            <button class="nav_button"><img src="/assets/icons/Home.svg" alt="Haus Logo"></button>
+            <a href="#top"><button class="nav_button"><img src="/assets/icons/Home.svg" alt="Haus Logo"></button></a>
             <button class="nav_button"><img src="/assets/icons/Profile.svg" alt="Profil Logo"></button>
             <button class="nav_button"><img src="/assets/icons/orders.svg" alt="Bestell Logo"></button>
-            <button class="nav_button"><img src="/assets/icons/basket.svg" alt="Warenkorb Logo"></button>
+            <button class="nav_button" id="basket_button" onclick="openBasketDialog()"><img
+                    src="/assets/icons/basket.svg" alt="Warenkorb Logo" id="basket_icon"></button>
         </nav>
     </footer>
 </body>

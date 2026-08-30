@@ -111,3 +111,7 @@
     background-color: rgba(54, 53, 52, 1);
     border: none;
 }
+
+.nav_button > img:hover {
+    cursor: pointer;
+}
