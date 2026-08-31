@@ -31,6 +31,7 @@
 
     .section_headline_background {
         height: 60px;
+        width: calc(100% + 300px);
     }
 
     .menu_section {
@@ -86,6 +87,10 @@
         font-size: 20px;
     }
 
+    .section_headline_background {
+        width: calc(100% + 250px);
+    }
+
     .menu_section {
         width: calc(100% - 250px);
     }
@@ -139,6 +144,10 @@
 
     .basket_section {
         display: none;
+    }
+
+    .section_headline_background {
+        width: 100%;
     }
 
     .headline_content>h3 {
