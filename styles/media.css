@@ -234,21 +234,7 @@
     }
 
     .landing_section {
-        height: 700px;
-    }
-
-    .hero {
-        height: 350px;
-        top: 80px;
-    }
-
-    .burger_house_logo {
-        padding-top: 200px;
-    }
-
-    .burger_house_logo>img {
-        width: 120px;
-        height: 120px;
+        height: 475px;
     }
 
     .headline {

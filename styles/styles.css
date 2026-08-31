@@ -4,21 +4,21 @@ body {
 
 .landing_section {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-direction: column;
 }
 
 .hero {
-    position: absolute;
-    top: 120px;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: cover;
-    overflow: hidden;
+    width: 100%;
     max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .headline_content {
@@ -26,10 +26,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    padding-bottom: 50px;
 }
 
 .burger_house_logo {
-    padding-top: 300px;
+    width: min(20vw, 300px);
+    transform: translateY(-50%);
+    margin-bottom: calc(min(20vw, 300px) / -2);
+}
+
+.burger_house_logo img {
+    width: 100%;
+    display: block;
 }
 
 .headline {
