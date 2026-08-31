@@ -1,3 +1,5 @@
+const deliveryFee = 4.99;
+
 function init() {
     renderAllMenu();
 }
@@ -8,9 +10,30 @@ function renderAllMenu() {
     renderSalad();
 }
 
-const deliveryFee = 4.99;
-
 function addToBasket(indexMenu, startKey) {
+    let existingIndex = findBasketIndex(indexMenu, startKey);
+
+    if (existingIndex !== -1) {
+        incrementQuantity(existingIndex);
+        return;
+    }
+
+    addNewBasketItem(indexMenu, startKey);
+}
+
+function findBasketIndex(indexMenu, startKey) {
+    for (let i = 0; i < allMenus.basketMenuOrigin.length; i++) {
+        let origin = allMenus.basketMenuOrigin[i];
+
+        if (origin.indexMenu === indexMenu && origin.startKey === startKey) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+function addNewBasketItem(indexMenu, startKey) {
     let basketMenuNamesRef = allMenus[startKey + "Names"][indexMenu];
     let basketMenuPricesRef = allMenus[startKey + "Prices"][indexMenu];
 
@@ -131,7 +154,7 @@ function updateDecrementButton(indexBasket, quantity) {
 }
 
 function deleteFromBasket(indexBasket) {
-let origin = allMenus.basketMenuOrigin[indexBasket];
+    let origin = allMenus.basketMenuOrigin[indexBasket];
 
     allMenus.basketMenuNames.splice(indexBasket, 1);
     allMenus.basketMenuPrices.splice(indexBasket, 1);
@@ -242,7 +265,7 @@ function openBasketDialog() {
 
 function closeBasketDialog() {
     let dialog = document.getElementById('basket_dialog_mobile');
-    
+
     dialog.classList.remove('slide_in');
     dialog.classList.add('slide_out');
 
