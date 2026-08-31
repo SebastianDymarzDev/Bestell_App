@@ -5,9 +5,9 @@ function init() {
 }
 
 function renderAllMenu() {
-    renderBurger();
-    renderPizza();
-    renderSalad();
+    renderMenu('burgers', 'burgerMenu');
+    renderMenu('pizza', 'pizzaMenu');
+    renderMenu('salad', 'saladMenu');
 }
 
 function addToBasket(indexMenu, startKey) {
@@ -56,30 +56,14 @@ function pushToBasket(name, price, indexMenu, startKey) {
     allMenus.basketMenuQuantities.push(1);
 }
 
-function renderBurger() {
-    let burgerContentRef = document.getElementById('burgers');
-    burgerContentRef.innerHTML = "";
+function renderMenu(containerId, startKey) {
+    let contentRef = document.getElementById(containerId);
+    contentRef.innerHTML = "";
 
-    for (let indexBurger = 0; indexBurger < allMenus.burgerMenuNames.length; indexBurger++) {
-        burgerContentRef.innerHTML += getBurgerTemplate(indexBurger);
-    }
-}
+    let names = allMenus[startKey + "Names"];
 
-function renderPizza() {
-    let pizzaContentRef = document.getElementById('pizza');
-    pizzaContentRef.innerHTML = "";
-
-    for (let indexPizza = 0; indexPizza < allMenus.pizzaMenuNames.length; indexPizza++) {
-        pizzaContentRef.innerHTML += getPizzaTemplate(indexPizza);
-    }
-}
-
-function renderSalad() {
-    let saladContentRef = document.getElementById('salad');
-    saladContentRef.innerHTML = "";
-
-    for (let indexSalad = 0; indexSalad < allMenus.saladMenuNames.length; indexSalad++) {
-        saladContentRef.innerHTML += getSaladTemplate(indexSalad);
+    for (let indexMenu = 0; indexMenu < names.length; indexMenu++) {
+        contentRef.innerHTML += getMenuTemplate(indexMenu, startKey);
     }
 }
 

@@ -1,63 +1,19 @@
-function getBurgerTemplate(indexBurger) {
+function getMenuTemplate(indexMenu, startKey) {
     return `
         <div class="menu_box">
             <img
                 class="menu_image"
-                src="${allMenus.burgerMenuImages[indexBurger]}"
-                alt="${allMenus.burgerMenuNames[indexBurger]}"
+                src="${allMenus[startKey + "Images"][indexMenu]}"
+                alt="${allMenus[startKey + "Names"][indexMenu]}"
             >
             <article class="menu_content">
                 <div class="left_content">
-                    <h3>${allMenus.burgerMenuNames[indexBurger]}</h3>
-                    <p>${allMenus.burgerMenuDescriptions[indexBurger]}</p>
+                    <h3>${allMenus[startKey + "Names"][indexMenu]}</h3>
+                    <p>${allMenus[startKey + "Descriptions"][indexMenu]}</p>
                 </div>
                 <div class="right_content">
-                    <h3>${allMenus.burgerMenuPrices[indexBurger]}€</h3>
-                    <button id="add-button-burgerMenu-${indexBurger}" onclick="addToBasket(${indexBurger}, 'burgerMenu')" class="add_button">Add to basket</button>
-                </div>
-            </article>
-        </div>
-    `;
-}
-
-function getPizzaTemplate(indexPizza) {
-    return `
-        <div class="menu_box">
-            <img
-                class="menu_image"
-                src="${allMenus.pizzaMenuImages[indexPizza]}"
-                alt="${allMenus.pizzaMenuNames[indexPizza]}"
-            >
-            <article class="menu_content">
-                <div class="left_content">
-                    <h3>${allMenus.pizzaMenuNames[indexPizza]}</h3>
-                    <p>${allMenus.pizzaMenuDescriptions[indexPizza]}</p>
-                </div>
-                <div class="right_content">
-                    <h3>${allMenus.pizzaMenuPrices[indexPizza]}€</h3>
-                    <button id="add-button-pizzaMenu-${indexPizza}" onclick="addToBasket(${indexPizza}, 'pizzaMenu')" class="add_button">Add to basket</button>
-                </div>
-            </article>
-        </div>
-    `;
-}
-
-function getSaladTemplate(indexSalad) {
-    return `
-        <div class="menu_box">
-            <img
-                class="menu_image"
-                src="${allMenus.saladMenuImages[indexSalad]}"
-                alt="${allMenus.saladMenuNames[indexSalad]}"
-            >
-            <article class="menu_content">
-                <div class="left_content">
-                    <h3>${allMenus.saladMenuNames[indexSalad]}</h3>
-                    <p>${allMenus.saladMenuDescriptions[indexSalad]}</p>
-                </div>
-                <div class="right_content">
-                    <h3>${allMenus.saladMenuPrices[indexSalad]}€</h3>
-                    <button id="add-button-saladMenu-${indexSalad}" onclick="addToBasket(${indexSalad}, 'saladMenu')" class="add_button">Add to basket</button>
+                    <h3>${allMenus[startKey + "Prices"][indexMenu]}€</h3>
+                    <button id="add-button-${startKey}-${indexMenu}" onclick="addToBasket(${indexMenu}, '${startKey}')" class="add_button">Add to basket</button>
                 </div>
             </article>
         </div>
