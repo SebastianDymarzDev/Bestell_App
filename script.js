@@ -277,8 +277,8 @@ function updateBasketButton() {
     let totalItems = allMenus.basketMenuQuantities.reduce((sum, quantity) => sum + quantity, 0);
 
     if (totalItems <= 0) {
-        basketIcon.src = '/assets/icons/basket.svg';
+        basketIcon.src = './assets/icons/basket.svg';
     } else {
-        basketIcon.src = '/assets/icons/shopping_cart.svg';
+        basketIcon.src = './assets/icons/shopping_cart.svg';
     }
 }
