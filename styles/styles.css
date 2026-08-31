@@ -101,8 +101,8 @@ h3 {
 .section_headline_background {
     position: absolute;
     top: 0;
-    left: 0;
-    width: calc(100% + 400px);
+    left: calc(-1 * max(0px, (100vw - 1440px) / 2));
+    width: 100vw;
     height: 90px;
     background-color: rgba(231, 108, 31, 1);
 }
