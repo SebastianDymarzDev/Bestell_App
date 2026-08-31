@@ -166,7 +166,7 @@ function getItemPrice(index) {
     let priceElement = document.getElementById(`price-${index}`);
 
     if (!priceElement) {
-        return 0; // Artikel wurde gelöscht, also überspringen
+        return 0;
     }
 
     let priceText = priceElement.innerHTML.replace('€', '').trim();
