@@ -37,3 +37,12 @@ function getBasketTemplate(indexBasket) {
         </div>
     `;
 }
+
+function getEmptyBasketTemplate() {
+    return `
+        <div class="empty_basket">
+            <p>Nothing here yet. Go ahead and choose something delicious!</p>
+            <img src="./assets/icons/basket.svg" alt="Leerer Warenkorb">
+        </div>
+    `;
+}

@@ -2,6 +2,8 @@ const deliveryFee = 4.99;
 
 function init() {
     renderAllMenu();
+    renderBasket();
+    updatePrices();
 }
 
 function renderAllMenu() {
@@ -68,7 +70,16 @@ function renderMenu(containerId, startKey) {
 }
 
 function renderBasket() {
-    let basketContentRef = document.getElementById('basket')
+    let basketContentRef = document.getElementById('basket');
+    let basketContainerRef = document.querySelector('.basket_content');
+
+    if (allMenus.basketMenuNames.length === 0) {
+        basketContentRef.innerHTML = getEmptyBasketTemplate();
+        basketContainerRef.classList.add('basket_empty');
+        return;
+    }
+
+    basketContainerRef.classList.remove('basket_empty');
     basketContentRef.innerHTML = "";
 
     for (let indexBasket = 0; indexBasket < allMenus.basketMenuNames.length; indexBasket++) {

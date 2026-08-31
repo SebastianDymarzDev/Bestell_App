@@ -255,3 +255,16 @@ h3 {
         transform: translateY(100%);
     }
 }
+
+.basket_content.basket_empty .prices,
+.basket_content.basket_empty .buy_button {
+    display: none;
+}
+
+.empty_basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 40px 0;
+}
