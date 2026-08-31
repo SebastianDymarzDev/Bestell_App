@@ -25,10 +25,13 @@ function getBasketTemplate(indexBasket) {
 
     return `
         <div class="basket_menu_box">
-            <h3 id="name-${indexBasket}"> ${quantity} x ${allMenus.basketMenuNames[indexBasket]}</h3>
+            <div class="basket_menu_header">
+                <h3 id="name-${indexBasket}">${quantity} x ${allMenus.basketMenuNames[indexBasket]}</h3>
+                <button id="delete-${indexBasket}" onclick="deleteFromBasket(${indexBasket})" class="delete_button"></button>
+            </div>
             <div class="basket_menu_content">
                 <div class="selection_field">
-                    <button id="decrement-${indexBasket}" onclick="decrementQuantity(${indexBasket})" class="trash_button"></button>
+                    <button id="decrement-${indexBasket}" onclick="decrementQuantity(${indexBasket})" class="selection_button">-</button>
                     <p id="quantity-${indexBasket}"> ${quantity} </p>
                     <button class="selection_button" onclick="incrementQuantity(${indexBasket})"> + </button>
                 </div>

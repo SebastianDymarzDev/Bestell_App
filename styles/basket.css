@@ -64,10 +64,12 @@
 .basket_menu_content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .basket_menu_content p {
     font-weight: 700;
+    font-size: 22px;
 }
 
 .prices {
@@ -91,4 +93,38 @@
 .selection_field > p {
     font-size: 24px;
     padding: 0px 3px 5px 3px;
+}
+
+.basket_menu_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.basket_menu_header h3 {
+    max-width: 280px;
+    color: black;
+}
+
+.delete_button {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    background: url('../assets/icons/trash.svg') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.delete_button.visible {
+    visibility: visible;
+}
+
+.selection_button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
 }

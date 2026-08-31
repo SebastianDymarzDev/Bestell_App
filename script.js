@@ -138,13 +138,12 @@ function updateBasketItem(indexBasket, quantity) {
 }
 
 function updateDecrementButton(indexBasket, quantity) {
-    let decrementButton = document.getElementById(`decrement-${indexBasket}`);
+    let deleteButton = document.getElementById(`delete-${indexBasket}`);
 
     if (quantity === 1) {
-        decrementButton.className = 'trash_button';
+        deleteButton.classList.remove('visible');
     } else {
-        decrementButton.className = 'selection_button';
-        decrementButton.textContent = '-';
+        deleteButton.classList.add('visible');
     }
 }
 
