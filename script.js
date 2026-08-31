@@ -284,11 +284,15 @@ function finishClosingBasketDialog() {
 
 function updateBasketButton() {
     let basketIcon = document.getElementById('basket_icon');
+    let basketCount = document.getElementById('basket_count');
     let totalItems = allMenus.basketMenuQuantities.reduce((sum, quantity) => sum + quantity, 0);
 
     if (totalItems <= 0) {
         basketIcon.src = './assets/icons/basket.svg';
+        basketCount.classList.remove('visible');
     } else {
         basketIcon.src = './assets/icons/shopping_cart.svg';
+        basketCount.textContent = totalItems;
+        basketCount.classList.add('visible');
     }
 }
