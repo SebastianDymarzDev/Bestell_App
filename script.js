@@ -229,7 +229,7 @@ function openOrderDialog() {
     let dialog = document.getElementById('order_dialog');
     dialog.showModal();
 
-    setTimeout(closeOrderDialog, 5000);
+    setTimeout(closeOrderDialog, 3000);
 
     closeBasketDialog();
     resetBasket();

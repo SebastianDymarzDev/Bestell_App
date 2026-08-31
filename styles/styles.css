@@ -79,6 +79,8 @@ h3 {
 
 .main_content_section {
     display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .menu_section {
@@ -99,9 +101,9 @@ h3 {
 .section_headline_background {
     position: absolute;
     top: 0;
-    left: 0;
-    height: 90px;
+    left: calc(-1 * max(0px, (100vw - 1440px) / 2));
     width: 100vw;
+    height: 90px;
     background-color: rgba(231, 108, 31, 1);
 }
 
