@@ -255,6 +255,7 @@ function openBasketDialog() {
     dialog.appendChild(basketContainer);
     dialog.showModal();
     dialog.classList.add('slide_in');
+    document.body.classList.add('dialog_open');
 }
 
 function closeBasketDialog() {
@@ -280,6 +281,7 @@ function finishClosingBasketDialog() {
     basketSection.appendChild(basketContainer);
     dialog.classList.remove('slide_out');
     dialog.close();
+    document.body.classList.remove('dialog_open');
 }
 
 function updateBasketButton() {

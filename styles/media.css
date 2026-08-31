@@ -215,6 +215,12 @@
         width: 100%;
     }
 
+    .menu_in_basket {
+        max-height: 355px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
     .prices {
         width: 70%;
     }
