@@ -227,7 +227,7 @@ h3 {
     width: 90%;
     max-width: 90%;
     height: auto;
-    max-height: 90vh;
+    max-height: min(90vh, calc(100vh - 100px));
     position: fixed;
     bottom: 80px;
     left: 0;
