@@ -70,21 +70,43 @@ function renderMenu(containerId, startKey) {
 }
 
 function renderBasket() {
-    let basketContentRef = document.getElementById('basket');
     let basketContainerRef = document.querySelector('.basket_content');
 
     if (allMenus.basketMenuNames.length === 0) {
-        basketContentRef.innerHTML = getEmptyBasketTemplate();
-        basketContainerRef.classList.add('basket_empty');
+        showEmptyBasket();
         return;
     }
 
     basketContainerRef.classList.remove('basket_empty');
+    renderBasketItems();
+}
+
+function showEmptyBasket() {
+    let basketContentRef = document.getElementById('basket');
+    let basketContainerRef = document.querySelector('.basket_content');
+
+    basketContentRef.innerHTML = getEmptyBasketTemplate();
+    basketContainerRef.classList.add('basket_empty');
+}
+
+function renderBasketItems() {
+    let basketContentRef = document.getElementById('basket');
     basketContentRef.innerHTML = "";
 
     for (let indexBasket = 0; indexBasket < allMenus.basketMenuNames.length; indexBasket++) {
-        basketContentRef.innerHTML += getBasketTemplate(indexBasket);
+        let decrementClass = getDecrementButtonClass(indexBasket);
+        basketContentRef.innerHTML += getBasketTemplate(indexBasket, decrementClass);
     }
+}
+
+function getDecrementButtonClass(indexBasket) {
+    let quantity = allMenus.basketMenuQuantities[indexBasket];
+
+    if (quantity === 1) {
+        return "selection_button delete_icon";
+    }
+
+    return "selection_button";
 }
 
 function incrementQuantity(indexBasket) {
@@ -111,6 +133,10 @@ function decrementQuantity(indexBasket) {
     }
 
     quantity--;
+    updateAfterDecrement(indexBasket, quantity);
+}
+
+function updateAfterDecrement(indexBasket, quantity) {
     updateBasketItem(indexBasket, quantity);
     updatePrices();
     updateBasketButton();
@@ -123,27 +149,33 @@ function updateBasketItem(indexBasket, quantity) {
     allMenus.basketMenuQuantities[indexBasket] = quantity;
 
     let quantityElement = document.getElementById(`quantity-${indexBasket}`);
+    quantityElement.innerHTML = quantity;
+
+    updateBasketItemDisplay(indexBasket, quantity);
+    updateDecrementButton(indexBasket, quantity);
+}
+
+function updateBasketItemDisplay(indexBasket, quantity) {
     let priceElement = document.getElementById(`price-${indexBasket}`);
     let nameElement = document.getElementById(`name-${indexBasket}`);
-
-    quantityElement.innerHTML = quantity;
 
     let basePrice = allMenus.basketMenuPrices[indexBasket];
     let newPrice = basePrice * quantity;
     priceElement.innerHTML = `${newPrice.toFixed(2)} €`;
 
     nameElement.innerHTML = `${quantity} x ${allMenus.basketMenuNames[indexBasket]}`;
-
-    updateDecrementButton(indexBasket, quantity);
 }
 
 function updateDecrementButton(indexBasket, quantity) {
     let deleteButton = document.getElementById(`delete-${indexBasket}`);
+    let decrementButton = document.getElementById(`decrement-${indexBasket}`);
 
     if (quantity === 1) {
         deleteButton.classList.remove('visible');
+        decrementButton.classList.add('delete_icon');
     } else {
         deleteButton.classList.add('visible');
+        decrementButton.classList.remove('delete_icon');
     }
 }
 

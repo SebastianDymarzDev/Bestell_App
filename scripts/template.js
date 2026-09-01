@@ -20,7 +20,7 @@ function getMenuTemplate(indexMenu, startKey) {
     `;
 }
 
-function getBasketTemplate(indexBasket) {
+function getBasketTemplate(indexBasket, decrementClass) {
     return `
         <div class="basket_menu_box">
             <div class="basket_menu_header">
@@ -29,7 +29,7 @@ function getBasketTemplate(indexBasket) {
             </div>
             <div class="basket_menu_content">
                 <div class="selection_field">
-                    <button id="decrement-${indexBasket}" onclick="decrementQuantity(${indexBasket})" class="selection_button">-</button>
+                    <button id="decrement-${indexBasket}" onclick="decrementQuantity(${indexBasket})" class="${decrementClass}">-</button>
                     <p id="quantity-${indexBasket}"> ${allMenus.basketMenuQuantities[indexBasket]} </p>
                     <button class="selection_button" onclick="incrementQuantity(${indexBasket})"> + </button>
                 </div>

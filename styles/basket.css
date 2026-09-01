@@ -135,6 +135,14 @@
     cursor: pointer;
 }
 
+.selection_button.delete_icon {
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+    background: url('../assets/icons/trash.svg') no-repeat center;
+    background-size: contain;
+}
+
 .menu_in_basket {
     scrollbar-width: thin;
     scrollbar-color: rgba(253, 234, 220, 0.5) transparent;
