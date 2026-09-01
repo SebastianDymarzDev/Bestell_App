@@ -310,12 +310,28 @@ function openBasketDialog() {
     let basketContainer = document.querySelector('.basket_container');
 
     cancelPendingBasketClose();
+    lockBodyScroll();
 
     dialog.classList.remove('slide_out');
     dialog.appendChild(basketContainer);
     dialog.showModal();
     dialog.classList.add('slide_in');
     document.body.classList.add('dialog_open');
+}
+
+function lockBodyScroll() {
+    let scrollY = window.scrollY;
+    document.body.style.setProperty('--scroll-lock-top', `-${scrollY}px`);
+    document.body.dataset.scrollY = scrollY;
+}
+
+function unlockBodyScroll() {
+    let scrollY = parseInt(document.body.dataset.scrollY || 0);
+
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.classList.remove('dialog_open');
+    window.scrollTo(0, scrollY);
+    document.documentElement.style.scrollBehavior = '';
 }
 
 function cancelPendingBasketClose() {
@@ -354,7 +370,7 @@ function finishClosingBasketDialog() {
     basketSection.appendChild(basketContainer);
     dialog.classList.remove('slide_out');
     dialog.close();
-    document.body.classList.remove('dialog_open');
+    unlockBodyScroll();
 }
 
 function updateBasketButton() {

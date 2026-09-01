@@ -301,6 +301,13 @@
 
     .right_content {
         flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .right_content .add_button {
+        width: auto;
+        flex-shrink: 0;
     }
 
 }
