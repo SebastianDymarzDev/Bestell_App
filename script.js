@@ -1,4 +1,5 @@
 const deliveryFee = 4.99;
+let basketDialogCloseTimeout = null;
 
 function init() {
     renderAllMenu();
@@ -308,10 +309,20 @@ function openBasketDialog() {
     let dialog = document.getElementById('basket_dialog_mobile');
     let basketContainer = document.querySelector('.basket_container');
 
+    cancelPendingBasketClose();
+
+    dialog.classList.remove('slide_out');
     dialog.appendChild(basketContainer);
     dialog.showModal();
     dialog.classList.add('slide_in');
     document.body.classList.add('dialog_open');
+}
+
+function cancelPendingBasketClose() {
+    if (basketDialogCloseTimeout) {
+        clearTimeout(basketDialogCloseTimeout);
+        basketDialogCloseTimeout = null;
+    }
 }
 
 function closeBasketDialog() {
@@ -320,7 +331,7 @@ function closeBasketDialog() {
     dialog.classList.remove('slide_in');
     dialog.classList.add('slide_out');
 
-    setTimeout(finishClosingBasketDialog, 300);;
+    basketDialogCloseTimeout = setTimeout(finishClosingBasketDialog, 300);
 }
 
 function closeBasketDialogOnBackdrop(event) {
@@ -330,9 +341,15 @@ function closeBasketDialogOnBackdrop(event) {
 }
 
 function finishClosingBasketDialog() {
+    basketDialogCloseTimeout = null;
+
     let dialog = document.getElementById('basket_dialog_mobile');
     let basketSection = document.querySelector('.basket_section');
     let basketContainer = dialog.querySelector('.basket_container');
+
+    if (!basketContainer) {
+        return;
+    }
 
     basketSection.appendChild(basketContainer);
     dialog.classList.remove('slide_out');
