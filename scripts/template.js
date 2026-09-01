@@ -20,12 +20,12 @@ function getMenuTemplate(indexMenu, startKey) {
     `;
 }
 
-function getBasketTemplate(indexBasket, decrementClass) {
+function getBasketTemplate(indexBasket, decrementClass, deleteButtonClass, itemPrice) {
     return `
         <div class="basket_menu_box">
             <div class="basket_menu_header">
                 <h3 id="name-${indexBasket}">${allMenus.basketMenuQuantities[indexBasket]} x ${allMenus.basketMenuNames[indexBasket]}</h3>
-                <button id="delete-${indexBasket}" onclick="deleteFromBasket(${indexBasket})" class="delete_button"></button>
+                <button id="delete-${indexBasket}" onclick="deleteFromBasket(${indexBasket})" class="${deleteButtonClass}"></button>
             </div>
             <div class="basket_menu_content">
                 <div class="selection_field">
@@ -33,7 +33,7 @@ function getBasketTemplate(indexBasket, decrementClass) {
                     <p id="quantity-${indexBasket}"> ${allMenus.basketMenuQuantities[indexBasket]} </p>
                     <button class="selection_button" onclick="incrementQuantity(${indexBasket})"> + </button>
                 </div>
-                <p id="price-${indexBasket}">${allMenus.basketMenuPrices[indexBasket]} €</p>
+                <p id="price-${indexBasket}">${itemPrice} €</p>
             </div>
         </div>
     `;

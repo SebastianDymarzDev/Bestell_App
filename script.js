@@ -94,9 +94,33 @@ function renderBasketItems() {
     basketContentRef.innerHTML = "";
 
     for (let indexBasket = 0; indexBasket < allMenus.basketMenuNames.length; indexBasket++) {
-        let decrementClass = getDecrementButtonClass(indexBasket);
-        basketContentRef.innerHTML += getBasketTemplate(indexBasket, decrementClass);
+        basketContentRef.innerHTML += getBasketItemHtml(indexBasket);
     }
+}
+
+function getBasketItemHtml(indexBasket) {
+    let decrementClass = getDecrementButtonClass(indexBasket);
+    let deleteButtonClass = getDeleteButtonClass(indexBasket);
+    let itemPrice = getItemDisplayPrice(indexBasket);
+
+    return getBasketTemplate(indexBasket, decrementClass, deleteButtonClass, itemPrice);
+}
+
+function getDeleteButtonClass(indexBasket) {
+    let quantity = allMenus.basketMenuQuantities[indexBasket];
+
+    if (quantity > 1) {
+        return "delete_button visible";
+    }
+
+    return "delete_button";
+}
+
+function getItemDisplayPrice(indexBasket) {
+    let quantity = allMenus.basketMenuQuantities[indexBasket];
+    let basePrice = allMenus.basketMenuPrices[indexBasket];
+
+    return (basePrice * quantity).toFixed(2);
 }
 
 function getDecrementButtonClass(indexBasket) {
